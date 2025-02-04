@@ -40,6 +40,8 @@ public class QuickSort {
         System.out.println("Tiempo de ejecución de QuickSort: " + duration + " nanosegundos");
     }
 
+    // Implementación basada en TutosPOO
+    // Fuente: https://tutospoo.jimdofree.com/tutoriales-java/m%C3%A9todos-de-ordenaci%C3%B3n/ordenaci%C3%B3n-r%C3%A1pida-quicksort/
     // Implementación del algoritmo QuickSort
     public static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
