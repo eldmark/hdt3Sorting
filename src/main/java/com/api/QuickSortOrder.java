@@ -25,20 +25,14 @@ public class QuickSortOrder {
         // Convertir la lista a un arreglo
         int[] numbers = numbersList.stream().mapToInt(i -> i).toArray();
 
-        // Medir el tiempo de ejecución del algoritmo QuickSort
-        long startTime = System.nanoTime();
-
         // Ordenar el arreglo usando QuickSort
         quickSort(numbers, 0, numbers.length - 1);
 
-        long endTime = System.nanoTime();
-        long duration = (endTime - startTime); // Tiempo en nanosegundos
 
         // Imprimir los números ordenados
         for (int number : numbers) {
             System.out.println(number);
         }
-        System.out.println("Tiempo de ejecución de QuickSort: " + duration + " nanosegundos");
     }
 
     // Implementación basada en TutosPOO
