@@ -66,7 +66,7 @@ public class NewMergeSort {
 
     // Main function that sorts arr[l..r] using
     // merge()
-    static void sort(int arr[], int l, int r)
+    public static void sort(int arr[], int l, int r)
     {
         if (l < r) {
 

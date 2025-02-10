@@ -1,19 +1,21 @@
-package src.main.java.com.api;
-
-
+package com.api;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import src.main.java.com.api.NewInsertionSort;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 
 
 public class NewInsertionSortTest {
 
+
     @Test
     public void testInsertionSortWithPositiveNumbers() {
         int[] array = {5, 2, 9, 1, 5, 6};
         int[] sortedArray = {1, 2, 5, 5, 6, 9};
-        NewInsertionSort.insertionSort(array);
+        NewInsertionSort.sort(array);
         assertArrayEquals(sortedArray, array);
     }
 
@@ -21,7 +23,7 @@ public class NewInsertionSortTest {
     public void testInsertionSortWithNegativeNumbers() {
         int[] array = {-3, -1, -2, -5, -4};
         int[] sortedArray = {-5, -4, -3, -2, -1};
-        NewInsertionSort.insertionSort(array);
+        NewInsertionSort.sort(array);
         assertArrayEquals(sortedArray, array);
     }
 
@@ -29,7 +31,7 @@ public class NewInsertionSortTest {
     public void testInsertionSortWithMixedNumbers() {
         int[] array = {3, -1, 2, -5, 4};
         int[] sortedArray = {-5, -1, 2, 3, 4};
-        NewInsertionSort.insertionSort(array);
+        NewInsertionSort.sort(array);
         assertArrayEquals(sortedArray, array);
     }
 
@@ -37,7 +39,7 @@ public class NewInsertionSortTest {
     public void testInsertionSortWithDuplicates() {
         int[] array = {3, 3, 2, 1, 2};
         int[] sortedArray = {1, 2, 2, 3, 3};
-        NewInsertionSort.insertionSort(array);
+        NewInsertionSort.sort(array);
         assertArrayEquals(sortedArray, array);
     }
 
@@ -45,7 +47,7 @@ public class NewInsertionSortTest {
     public void testInsertionSortWithSingleElement() {
         int[] array = {1};
         int[] sortedArray = {1};
-        NewInsertionSort.insertionSort(array);
+        NewInsertionSort.sort(array);
         assertArrayEquals(sortedArray, array);
     }
 
@@ -53,7 +55,7 @@ public class NewInsertionSortTest {
     public void testInsertionSortWithEmptyArray() {
         int[] array = {};
         int[] sortedArray = {};
-        NewInsertionSort.insertionSort(array);
+        NewInsertionSort.sort(array);
         assertArrayEquals(sortedArray, array);
     }
 }

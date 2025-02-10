@@ -11,7 +11,7 @@ import java.io.*;
 // Java program for implementation of Insertion Sort
 public class NewInsertionSort {
     /* Function to sort array using insertion sort */
-    void sort(int arr[])
+    public static void sort(int arr[])
     {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
@@ -57,8 +57,8 @@ public class NewInsertionSort {
 
         int[] arr = numbers.stream().mapToInt(i -> i).toArray();
 
-        NewInsertionSort ob = new NewInsertionSort();
-        ob.sort(arr);
+;
+        NewInsertionSort.sort(arr);
 
         System.out.println("Sorted array:");
         printArray(arr);
