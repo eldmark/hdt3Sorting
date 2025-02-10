@@ -1,3 +1,4 @@
+package src.main.java.com.api;
 /*
  * This code was taken from https://www.geeksforgeeks.org/insertion-sort/
  * and modified by Marco Díaz 24229
@@ -8,7 +9,7 @@ import java.util.*;
 import java.io.*;
 
 // Java program for implementation of Insertion Sort
-public class InsertionSort {
+public class NewInsertionSort {
     /* Function to sort array using insertion sort */
     void sort(int arr[])
     {
@@ -56,7 +57,7 @@ public class InsertionSort {
 
         int[] arr = numbers.stream().mapToInt(i -> i).toArray();
 
-        InsertionSort ob = new InsertionSort();
+        NewInsertionSort ob = new NewInsertionSort();
         ob.sort(arr);
 
         System.out.println("Sorted array:");

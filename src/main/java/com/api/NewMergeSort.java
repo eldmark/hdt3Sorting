@@ -1,3 +1,4 @@
+package src.main.java.com.api;
 import java.io.*;
 
 /*
@@ -6,7 +7,7 @@ import java.io.*;
  */
 
 
-public class MergeSort {
+public class NewMergeSort {
     // Java program for Merge Sort
 
 
