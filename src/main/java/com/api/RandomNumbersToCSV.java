@@ -1,4 +1,4 @@
-package src.main.java.com.api;
+package com.api;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
