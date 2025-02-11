@@ -59,7 +59,7 @@ class Radix {
     public static void main(String[] args) {
         try {
             
-            List<String> lines = Files.readAllLines(Paths.get("/Users/luisestrada/Desktop/HT3/hdt3Sorting/random_numbers.csv"));
+            List<String> lines = Files.readAllLines(Paths.get("hdt3Sorting/random_numbers.csv"));
             List<Integer> numbers = new ArrayList<>();
 
             //Método raddix no acepta negativos, entonces agregué excepciones y advertencias si encontraba un número no permitivo 
