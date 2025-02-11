@@ -1,26 +1,21 @@
 package src.main.java.com.api;
+import java.io.*;
+import java.util.*;
+
 /*
  * This code was taken from https://www.geeksforgeeks.org/insertion-sort/
  * and modified by Marco Díaz 24229
  */
 
-
-import java.util.*;
-import java.io.*;
-
 // Java program for implementation of Insertion Sort
 public class NewInsertionSort {
     /* Function to sort array using insertion sort */
-    public static void sort(int arr[])
-    {
+    public static void sort(int arr[]) {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
             int key = arr[i];
             int j = i - 1;
 
-            /* Move elements of arr[0..i-1], that are
-               greater than key, to one position ahead
-               of their current position */
             while (j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j];
                 j = j - 1;
@@ -29,40 +24,54 @@ public class NewInsertionSort {
         }
     }
 
-    /* A utility function to print array of size n */
-    static void printArray(int arr[])
-    {
-        int n = arr.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(arr[i] + " ");
-
+    static void printArray(int arr[]) {
+        for (int num : arr)
+            System.out.print(num + " ");
         System.out.println();
     }
 
-    // Driver method
-    public static void main(String args[])
-    {
-        List<Integer> numbers = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("random_numbers.csv"))) {
+    public static void main(String args[]) {
+        String filePath = "random_numbers.csv";
+        int[] arr = readArrayFromCSV(filePath);
+
+        System.out.println("Given Array");
+        printArray(arr);
+
+        sort(arr);
+
+        System.out.println("\nSorted array");
+        printArray(arr);
+
+        writeArrayToCSV(filePath, arr);
+    }
+
+    public static int[] readArrayFromCSV(String filePath) {
+        List<Integer> numberList = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-            String[] values = line.split(",");
-            for (String value : values) {
-                numbers.add(Integer.parseInt(value.trim()));
-            }
+                String[] numberStrings = line.split(",");
+                for (String numStr : numberStrings) {
+                    numberList.add(Integer.parseInt(numStr.trim()));
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return numberList.stream().mapToInt(i -> i).toArray();
+    }
 
-        int[] arr = numbers.stream().mapToInt(i -> i).toArray();
-
-;
-        NewInsertionSort.sort(arr);
-
-        System.out.println("Sorted array:");
-        printArray(arr);
+    public static void writeArrayToCSV(String filePath, int[] arr) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
+            for (int i = 0; i < arr.length; i++) {
+                bw.write(Integer.toString(arr[i]));
+                if (i < arr.length - 1) {
+                    bw.write(",");
+                }
+            }
+            bw.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
-
-/* This code is contributed by Hritik Shah. */

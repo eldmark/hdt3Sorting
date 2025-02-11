@@ -1,62 +1,46 @@
 package src.main.java.com.api;
 import java.io.*;
+import java.util.*;
 
 /*
  * This code was taken from https://www.geeksforgeeks.org/insertion-sort/
  * and modified by Marco Díaz 24229
  */
 
-
 public class NewMergeSort {
     // Java program for Merge Sort
 
-
     // Merges two subarrays of arr[].
-    // First subarray is arr[l..m]
-    // Second subarray is arr[m+1..r]
-    static void merge(int arr[], int l, int m, int r)
-    {
-        // Find sizes of two subarrays to be merged
+    static void merge(int arr[], int l, int m, int r) {
         int n1 = m - l + 1;
         int n2 = r - m;
 
-        // Create temp arrays
         int L[] = new int[n1];
         int R[] = new int[n2];
 
-        // Copy data to temp arrays
         for (int i = 0; i < n1; ++i)
             L[i] = arr[l + i];
         for (int j = 0; j < n2; ++j)
             R[j] = arr[m + 1 + j];
 
-        // Merge the temp arrays
-
-        // Initial indices of first and second subarrays
-        int i = 0, j = 0;
-
-        // Initial index of merged subarray array
-        int k = l;
+        int i = 0, j = 0, k = l;
         while (i < n1 && j < n2) {
             if (L[i] <= R[j]) {
                 arr[k] = L[i];
                 i++;
-            }
-            else {
+            } else {
                 arr[k] = R[j];
                 j++;
             }
             k++;
         }
 
-        // Copy remaining elements of L[] if any
         while (i < n1) {
             arr[k] = L[i];
             i++;
             k++;
         }
 
-        // Copy remaining elements of R[] if any
         while (j < n2) {
             arr[k] = R[j];
             j++;
@@ -64,36 +48,22 @@ public class NewMergeSort {
         }
     }
 
-    // Main function that sorts arr[l..r] using
-    // merge()
-    public static void sort(int arr[], int l, int r)
-    {
+    public static void sort(int arr[], int l, int r) {
         if (l < r) {
-
-            // Find the middle point
             int m = l + (r - l) / 2;
-
-            // Sort first and second halves
             sort(arr, l, m);
             sort(arr, m + 1, r);
-
-            // Merge the sorted halves
             merge(arr, l, m, r);
         }
     }
 
-    // A utility function to print array of size n
-    static void printArray(int arr[])
-    {
-        int n = arr.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(arr[i] + " ");
+    static void printArray(int arr[]) {
+        for (int num : arr)
+            System.out.print(num + " ");
         System.out.println();
     }
 
-    // Driver code
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         String filePath = "random_numbers.csv";
         int[] arr = readArrayFromCSV(filePath);
 
@@ -104,24 +74,37 @@ public class NewMergeSort {
 
         System.out.println("\nSorted array");
         printArray(arr);
-        }
 
-        // Function to read array from CSV file
-        public static int[] readArrayFromCSV(String filePath) {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(filePath));
-            String line = br.readLine();
-            String[] numberStrings = line.split(",");
-            int[] numbers = new int[numberStrings.length];
-            for (int i = 0; i < numberStrings.length; i++) {
-            numbers[i] = Integer.parseInt(numberStrings[i].trim());
+        writeArrayToCSV(filePath, arr);
+    }
+
+    public static int[] readArrayFromCSV(String filePath) {
+        List<Integer> numberList = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] numberStrings = line.split(",");
+                for (String numStr : numberStrings) {
+                    numberList.add(Integer.parseInt(numStr.trim()));
+                }
             }
-            br.close();
-            return numbers;
         } catch (IOException e) {
             e.printStackTrace();
-            return new int[0];
+        }
+        return numberList.stream().mapToInt(i -> i).toArray();
+    }
+
+    public static void writeArrayToCSV(String filePath, int[] arr) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
+            for (int i = 0; i < arr.length; i++) {
+                bw.write(Integer.toString(arr[i]));
+                if (i < arr.length - 1) {
+                    bw.write(",");
+                }
+            }
+            bw.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
-

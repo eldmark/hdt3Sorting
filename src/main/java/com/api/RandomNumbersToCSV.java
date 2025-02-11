@@ -6,7 +6,7 @@ import java.util.Random;
 public class RandomNumbersToCSV {
     public static void main(String[] args) {
         String fileName = "random_numbers.csv";
-        int numberOfRandomNumbers = 3000;
+        int numberOfRandomNumbers = 100;
 
         try (FileWriter writer = new FileWriter(fileName)) {
             Random random = new Random();
