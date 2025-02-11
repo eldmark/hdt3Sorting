@@ -2,6 +2,10 @@ import java.io.*;
 import java.util.*;
 
 // Selection sort implementado de geeksforgeeks cambiado por Adrian 24146
+/**
+ * The Selection class provides methods to read a CSV file containing integers,
+ * sort them using the selection sort algorithm, and print the sorted array.
+ */
 public class Selection {
     public static void main(String[] args) {
         String fileName = "hdt3Sorting/random_numbers.csv";

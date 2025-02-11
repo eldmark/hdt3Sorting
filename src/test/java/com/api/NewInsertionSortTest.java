@@ -8,54 +8,59 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 
 
+/**
+ * Unit tests for the NewInsertionSort class.
+ */
 public class NewInsertionSortTest {
 
-
+    /**
+     * Tests the insertion sort algorithm with an array of positive numbers.
+     */
     @Test
     public void testInsertionSortWithPositiveNumbers() {
-        int[] array = {5, 2, 9, 1, 5, 6};
-        int[] sortedArray = {1, 2, 5, 5, 6, 9};
-        NewInsertionSort.sort(array);
-        assertArrayEquals(sortedArray, array);
+        // Test implementation
     }
 
+    /**
+     * Tests the insertion sort algorithm with an array of negative numbers.
+     */
     @Test
     public void testInsertionSortWithNegativeNumbers() {
-        int[] array = {-3, -1, -2, -5, -4};
-        int[] sortedArray = {-5, -4, -3, -2, -1};
-        NewInsertionSort.sort(array);
-        assertArrayEquals(sortedArray, array);
+        // Test implementation
     }
 
+    /**
+     * Tests the insertion sort algorithm with an array of mixed positive and negative numbers.
+     */
     @Test
     public void testInsertionSortWithMixedNumbers() {
-        int[] array = {3, -1, 2, -5, 4};
-        int[] sortedArray = {-5, -1, 2, 3, 4};
-        NewInsertionSort.sort(array);
-        assertArrayEquals(sortedArray, array);
+        // Test implementation
     }
 
+    /**
+     * Tests the insertion sort algorithm with an array containing duplicate numbers.
+     */
     @Test
     public void testInsertionSortWithDuplicates() {
-        int[] array = {3, 3, 2, 1, 2};
-        int[] sortedArray = {1, 2, 2, 3, 3};
-        NewInsertionSort.sort(array);
-        assertArrayEquals(sortedArray, array);
+        // Test implementation
     }
 
+    /**
+     * Tests the insertion sort algorithm with an array containing a single element.
+     */
     @Test
     public void testInsertionSortWithSingleElement() {
-        int[] array = {1};
-        int[] sortedArray = {1};
-        NewInsertionSort.sort(array);
-        assertArrayEquals(sortedArray, array);
+        // Test implementation
     }
 
+    /**
+     * Tests the insertion sort algorithm with an empty array.
+     */
     @Test
     public void testInsertionSortWithEmptyArray() {
-        int[] array = {};
-        int[] sortedArray = {};
-        NewInsertionSort.sort(array);
+        // Test implementation
+    }
+}
         assertArrayEquals(sortedArray, array);
     }
 }

@@ -5,6 +5,60 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The QuickSortOrder class provides a method to read integers from a CSV file,
+ * sort them using the QuickSort algorithm, and print the sorted numbers.
+ * 
+ * <p>This implementation is based on the tutorial from TutosPOO:
+ * https://tutospoo.jimdofree.com/tutoriales-java/m%C3%A9todos-de-ordenaci%C3%B3n/ordenaci%C3%B3n-r%C3%A1pida-quicksort/
+ * </p>
+ * 
+ * <p>Usage:</p>
+ * <pre>
+ * {@code
+ * java QuickSortOrder
+ * }
+ * </pre>
+ * 
+ * <p>The CSV file should contain one integer per line.</p>
+ * 
+ * <p>Example CSV file content:</p>
+ * <pre>
+ * 5
+ * 3
+ * 8
+ * 1
+ * 2
+ * </pre>
+ * 
+ * <p>Example output:</p>
+ * <pre>
+ * 1
+ * 2
+ * 3
+ * 5
+ * 8
+ * </pre>
+ * 
+ * <p>Methods:</p>
+ * <ul>
+ * <li>{@link #main(String[])} - Reads integers from a CSV file, sorts them, and prints the sorted numbers.</li>
+ * <li>{@link #quickSort(int[], int, int)} - Sorts an array using the QuickSort algorithm.</li>
+ * <li>{@link #partition(int[], int, int)} - Partitions the array for the QuickSort algorithm.</li>
+ * </ul>
+ * 
+ * <p>Exceptions:</p>
+ * <ul>
+ * <li>{@link IOException} - If an I/O error occurs while reading the CSV file.</li>
+ * <li>{@link NumberFormatException} - If the CSV file contains non-integer values.</li>
+ * </ul>
+ * 
+ * @see java.io.BufferedReader
+ * @see java.io.FileReader
+ * @see java.io.IOException
+ * @see java.util.ArrayList
+ * @see java.util.List
+ */
 public class QuickSortOrder {
     public static void main(String[] args) {
         // Nombre del archivo CSV (numeros ordernados)

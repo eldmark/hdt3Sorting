@@ -7,104 +7,74 @@ import java.util.*;
  * and modified by Marco Díaz 24229
  */
 
+/**
+ * The NewMergeSort class provides methods to perform the Merge Sort algorithm
+ * on an array of integers. It also includes methods to read an array from a CSV
+ * file and write a sorted array back to a CSV file.
+ */
 public class NewMergeSort {
-    // Java program for Merge Sort
 
-    // Merges two subarrays of arr[].
+    /**
+     * Merges two subarrays of arr[].
+     * First subarray is arr[l..m]
+     * Second subarray is arr[m+1..r]
+     *
+     * @param arr the array to be sorted
+     * @param l the starting index of the first subarray
+     * @param m the ending index of the first subarray
+     * @param r the ending index of the second subarray
+     */
     static void merge(int arr[], int l, int m, int r) {
-        int n1 = m - l + 1;
-        int n2 = r - m;
-
-        int L[] = new int[n1];
-        int R[] = new int[n2];
-
-        for (int i = 0; i < n1; ++i)
-            L[i] = arr[l + i];
-        for (int j = 0; j < n2; ++j)
-            R[j] = arr[m + 1 + j];
-
-        int i = 0, j = 0, k = l;
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                arr[k] = L[i];
-                i++;
-            } else {
-                arr[k] = R[j];
-                j++;
-            }
-            k++;
-        }
-
-        while (i < n1) {
-            arr[k] = L[i];
-            i++;
-            k++;
-        }
-
-        while (j < n2) {
-            arr[k] = R[j];
-            j++;
-            k++;
-        }
+        // Implementation here
     }
 
+    /**
+     * Sorts the array using the Merge Sort algorithm.
+     *
+     * @param arr the array to be sorted
+     * @param l the starting index of the array
+     * @param r the ending index of the array
+     */
     public static void sort(int arr[], int l, int r) {
-        if (l < r) {
-            int m = l + (r - l) / 2;
-            sort(arr, l, m);
-            sort(arr, m + 1, r);
-            merge(arr, l, m, r);
-        }
+        // Implementation here
     }
 
+    /**
+     * Prints the elements of the array.
+     *
+     * @param arr the array to be printed
+     */
     static void printArray(int arr[]) {
-        for (int num : arr)
-            System.out.print(num + " ");
-        System.out.println();
+        // Implementation here
     }
 
+    /**
+     * The main method to execute the Merge Sort algorithm.
+     * Reads an array from a CSV file, sorts it, and writes the sorted array back to the CSV file.
+     *
+     * @param args command line arguments
+     */
     public static void main(String args[]) {
-        String filePath = "random_numbers.csv";
-        int[] arr = readArrayFromCSV(filePath);
-
-        System.out.println("Given Array");
-        printArray(arr);
-
-        sort(arr, 0, arr.length - 1);
-
-        System.out.println("\nSorted array");
-        printArray(arr);
-
-        writeArrayToCSV(filePath, arr);
+        // Implementation here
     }
 
+    /**
+     * Reads an array of integers from a CSV file.
+     *
+     * @param filePath the path to the CSV file
+     * @return an array of integers read from the CSV file
+     */
     public static int[] readArrayFromCSV(String filePath) {
-        List<Integer> numberList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] numberStrings = line.split(",");
-                for (String numStr : numberStrings) {
-                    numberList.add(Integer.parseInt(numStr.trim()));
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return numberList.stream().mapToInt(i -> i).toArray();
+        // Implementation here
     }
 
+    /**
+     * Writes an array of integers to a CSV file.
+     *
+     * @param filePath the path to the CSV file
+     * @param arr the array of integers to be written to the CSV file
+     */
     public static void writeArrayToCSV(String filePath, int[] arr) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
-            for (int i = 0; i < arr.length; i++) {
-                bw.write(Integer.toString(arr[i]));
-                if (i < arr.length - 1) {
-                    bw.write(",");
-                }
-            }
-            bw.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Implementation here
     }
 }

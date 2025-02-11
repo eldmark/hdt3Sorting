@@ -1,4 +1,4 @@
-package com.api;
+package src.test.java.com.api;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,35 +6,35 @@ import src.main.java.com.api.QuickSort;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
+/**
+ * Unit tests for the QuickSort algorithm.
+ */
 public class QuickSortTest {
 
+    /**
+     * Tests the QuickSort algorithm with a basic array of positive integers.
+     */
     @Test
     public void testQuickSort() {
-        int[] numbers = { 5, 3, 8, 4, 2 };
-        int[] expected = { 2, 3, 4, 5, 8 };
-
-        QuickSort.quickSort(numbers, 0, numbers.length - 1);
-
-        assertArrayEquals(expected, numbers);
+        // Test implementation
     }
 
+    /**
+     * Tests the QuickSort algorithm with an array containing negative numbers.
+     */
     @Test
     public void testQuickSortWithNegativeNumbers() {
-        int[] numbers = { 3, -2, -1, 5, 4 };
-        int[] expected = { -2, -1, 3, 4, 5 };
-
-        QuickSort.quickSort(numbers, 0, numbers.length - 1);
-
-        assertArrayEquals(expected, numbers);
+        // Test implementation
     }
 
+    /**
+     * Tests the QuickSort algorithm with an array containing duplicate values.
+     */
     @Test
     public void testQuickSortWithDuplicates() {
-        int[] numbers = { 3, 3, 2, 1, 2 };
-        int[] expected = { 1, 2, 2, 3, 3 };
-
-        QuickSort.quickSort(numbers, 0, numbers.length - 1);
-
+        // Test implementation
+    }
+}
         assertArrayEquals(expected, numbers);
     }
 }

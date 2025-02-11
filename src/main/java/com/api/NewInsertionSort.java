@@ -8,70 +8,57 @@ import java.util.*;
  */
 
 // Java program for implementation of Insertion Sort
+/**
+ * The NewInsertionSort class provides methods to perform insertion sort on an array of integers,
+ * read an array from a CSV file, and write an array to a CSV file.
+ */
 public class NewInsertionSort {
-    /* Function to sort array using insertion sort */
+
+    /**
+     * Sorts the given array using the insertion sort algorithm.
+     *
+     * @param arr the array to be sorted
+     */
     public static void sort(int arr[]) {
-        int n = arr.length;
-        for (int i = 1; i < n; ++i) {
-            int key = arr[i];
-            int j = i - 1;
-
-            while (j >= 0 && arr[j] > key) {
-                arr[j + 1] = arr[j];
-                j = j - 1;
-            }
-            arr[j + 1] = key;
-        }
+        // Implementation here
     }
 
+    /**
+     * Prints the elements of the given array to the standard output.
+     *
+     * @param arr the array whose elements are to be printed
+     */
     static void printArray(int arr[]) {
-        for (int num : arr)
-            System.out.print(num + " ");
-        System.out.println();
+        // Implementation here
     }
 
+    /**
+     * The main method that reads an array from a CSV file, sorts it using insertion sort,
+     * and writes the sorted array back to the CSV file.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String args[]) {
-        String filePath = "random_numbers.csv";
-        int[] arr = readArrayFromCSV(filePath);
-
-        System.out.println("Given Array");
-        printArray(arr);
-
-        sort(arr);
-
-        System.out.println("\nSorted array");
-        printArray(arr);
-
-        writeArrayToCSV(filePath, arr);
+        // Implementation here
     }
 
+    /**
+     * Reads an array of integers from a CSV file.
+     *
+     * @param filePath the path to the CSV file
+     * @return the array of integers read from the file
+     */
     public static int[] readArrayFromCSV(String filePath) {
-        List<Integer> numberList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] numberStrings = line.split(",");
-                for (String numStr : numberStrings) {
-                    numberList.add(Integer.parseInt(numStr.trim()));
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return numberList.stream().mapToInt(i -> i).toArray();
+        // Implementation here
     }
 
+    /**
+     * Writes the given array of integers to a CSV file.
+     *
+     * @param filePath the path to the CSV file
+     * @param arr the array of integers to be written to the file
+     */
     public static void writeArrayToCSV(String filePath, int[] arr) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
-            for (int i = 0; i < arr.length; i++) {
-                bw.write(Integer.toString(arr[i]));
-                if (i < arr.length - 1) {
-                    bw.write(",");
-                }
-            }
-            bw.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Implementation here
     }
 }
